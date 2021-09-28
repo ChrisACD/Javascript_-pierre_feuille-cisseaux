@@ -20,7 +20,7 @@ buttons[i].addEventListener("click", playGame);
 
 function playGame(e) {
   
-    // affichage du  message 
+   
     
 
 
@@ -31,14 +31,21 @@ function playGame(e) {
      
     if(playerSelection === "Pierre") {
 
-      joueur.classList.toggle('stone');
+      joueur.classList.add('stone');
+      joueur.classList.remove('paper');
+      joueur.classList.remove('scissors');
 
     } else if(playerSelection === "Feuille") {
+        joueur.classList.add('paper');
+        joueur.classList.remove('stone');
+        joueur.classList.remove('scissors');
 
-        joueur.classList.toggle('paper');
+
     } else if(playerSelection === "Sciseaux"){
 
-        joueur.classList.toggle('scissors');
+        joueur.classList.add('scissors');
+        joueur.classList.remove('stone');
+        joueur.classList.remove('paper');
     } else {
 
         return false;
@@ -53,16 +60,22 @@ function playGame(e) {
     if(computerSelection < 0.34) {
 
       computerSelection = "Pierre";
-      computer.classList.toggle('stone');
+      computer.classList.add('stone');
+      computer.classList.remove('paper');
+      computer.classList.remove('scissors');
 
     } else if(computerSelection <= 0.67) {
 
         computerSelection = "Feuille";
-        computer.classList.toggle('paper');
+        computer.classList.add('paper');
+        computer.classList.remove('stone');
+        computer.classList.remove('scissors');
     } else {
 
         computerSelection = "Sciseaux";
-        computer.classList.toggle('scissors');
+        computer.classList.add('scissors');
+        computer.classList.remove('stone');
+        computer.classList.remove('paper');
     }
 
 
@@ -75,20 +88,21 @@ if(result=="joueur") {
 
     result += " wins!"
     console.log(message);
-    message.style.display ="True";
     winner[0]++;
+    let sound = new Audio("sounds/bravo.mp3")
+    sound.play();
 
 } else if (result == "computer") {
-    message.style.display ="True";
+ 
     result += " wins!"
     winner[1]++;
 
 } else {
-    message.style.display ="True";
+   
     result += " Match null!"
 }
 
-score.innerHTML="joueur [" + winner[0] + "] computer[" + winner[1]+"]";
+score.innerHTML="Score: <br>  Joueur : " + winner[0] + " <br>  Computer : " + winner[1]+" ";
 
 messager(playerSelection + " vs " + computerSelection + "<br>  <br>" + result + "<br>");
 
