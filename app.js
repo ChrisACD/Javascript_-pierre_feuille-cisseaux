@@ -41,7 +41,7 @@ function playGame(e) {
         joueur.classList.remove('scissors');
 
 
-    } else if(playerSelection === "Sciseaux"){
+    } else if(playerSelection === "Ciseaux"){
 
         joueur.classList.add('scissors');
         joueur.classList.remove('stone');
@@ -72,7 +72,7 @@ function playGame(e) {
         computer.classList.remove('scissors');
     } else {
 
-        computerSelection = "Sciseaux";
+        computerSelection = "Ciseaux";
         computer.classList.add('scissors');
         computer.classList.remove('stone');
         computer.classList.remove('paper');
@@ -144,7 +144,7 @@ if(pl==="Pierre") {
 
 if(pl==="Feuille") {
 
-    if(co ==="Sciseaux"){
+    if(co ==="Ciseaux"){
    
         return"computer"
     } else {
@@ -156,7 +156,7 @@ if(pl==="Feuille") {
 
 
    
-if(pl==="Sciseaux") {
+if(pl==="Ciseaux") {
 
     if(co ==="Feuille"){
    
